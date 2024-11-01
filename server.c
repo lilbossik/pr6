@@ -34,7 +34,7 @@ int main() {
         inet_ntop(AF_INET, &address.sin_addr, client_addr, sizeof(client_addr));
         log_message(client_addr, "Client connected");
 
-        while (read(new_socket, buffer, BUFFER_SIZE)) {
+        while (recv(new_socket, buffer, BUFFER_SIZE, 0)) {
             log_message(client_addr, buffer);
             send(new_socket, buffer, strlen(buffer), 0);
         }
