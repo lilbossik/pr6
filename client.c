@@ -28,7 +28,7 @@ int main() {
         if (strcmp(buffer, "exit\n") == 0) break;
 
         send(sock, buffer, strlen(buffer), 0);
-        read(sock, buffer, BUFFER_SIZE);
+        recv(sock, buffer, BUFFER_SIZE, 0);
         printf("Server response: %s", buffer);
     }
 
